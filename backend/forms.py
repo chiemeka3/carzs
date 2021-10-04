@@ -10,9 +10,25 @@ from django.contrib.auth.forms import(PasswordResetForm, SetPasswordForm, Passwo
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=100, help_text='Last Name')
-    last_name = forms.CharField(max_length=100, help_text='Last Name')
-    email = forms.EmailField(max_length=150, help_text='Email')
+    username = forms.CharField(label='Username*', widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Enter Username'}))
+    first_name = forms.CharField(max_length=100, help_text='First Name', widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Enter Firstname'}))
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Enter Lastname'}))
+    email = forms.EmailField(max_length=150, help_text='Email',
+        widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Enter Email'}))
+    password1 = forms.CharField(label='Enter Password*', widget=forms.PasswordInput(
+        attrs={'class':'form-control', 'placeholder':'Enter Password'}))
+    password2= forms.CharField(label='Confirm Password*', widget=forms.PasswordInput(
+        attrs={'class':'form-control', 'placeholder':'Confirm Password'}))
+    
+
+    def clean_email(self):
+        email_field = self.cleaned_data.get('email')
+        if User.objects.filter(email=email_field).exists():
+            raise forms.ValidationError('Email already exist')
+        return email_field
 
     class Meta:
         model = User
