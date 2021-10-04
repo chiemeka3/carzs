@@ -1,0 +1,55 @@
+{% extends 'chart/base.html' %}
+{% load static %}
+
+{% block title %}
+Views Users
+{% endblock %}
+
+{% block content %}
+
+<h2>View Car</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Car Image</th>
+        <th>Car Owner</th>
+        <th>Car Year</th>
+        <th>Car Speed</th>
+        <th>Car Price</th>
+        <th>Car Description</th>
+        <th>Car Model</th>
+        <th>Car Location</th>
+        <th>Date Posted</th>
+    </tr>
+    
+        <tr>
+            <td><img src="{{ pst.img_url }}" class="col-lg-12" alt=""></td>
+            <td>
+                {{ pst.car_owner }}
+            </td>
+            <td>
+                {{ pst.car_year }}
+            </td>
+            <td>
+                {{ pst.car_speed }}
+            </td>
+            <td>
+                {{ pst.car_price }}
+            </td>
+            <td>
+                {{ pst.car_description }}
+            </td>
+            <td>
+                {{ pst.car_model }}
+            </td>
+            <td>
+                {{ pst.car_owner_location }}
+            </td>
+            <td>
+                {{ pst.date_posted }}
+            </td>
+            
+        </tr>
+        
+</table>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+Change Password
+{% endblock %}
+
+{% block content %}
+
+<h1>Change Password</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ pass_key.as_p }}
+    <input type="submit" value="Change Password" class="btn btnsuccess">
+</form>
+
+{% endblock %}

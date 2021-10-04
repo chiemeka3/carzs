@@ -1,0 +1,60 @@
+{% extends 'frontend/base.html' %}
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <h2>Create an Account</h2>
+        </div>
+      </div>
+      <!--col-xs-12-->
+    </div>
+    <!--row-->
+  </div>
+  <!--container-->
+</div>
+
+
+<!-- BEGIN Main Container -->
+
+<div class="main-container col1-layout wow bounceInUp animated animated" style="visibility: visible;">
+
+  <div class="main">
+    <div class="account-login container">
+      {% if messages %}
+        {% for mes in messages %}
+          <div class="alert alert-success">{{ mes }} </div> 
+        {% endfor %}
+      {% endif %}
+      <div class="row">
+        <div class="col-sm-12">
+      <!--page-title-->
+          <form class="form" method="post">
+            {{ reg }}
+            <input type="submit" class="btn btn-primary" value="register"> 
+        <!--col2-set-->
+            {% csrf_token %}
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <!--account-login-->
+
+  </div>
+  <!--main-container-->
+
+</div>
+<!--col1-layout-->
+
+
+
+
+
+<!-- For version 1,2,3,4,6 -->
+{% endblock %}

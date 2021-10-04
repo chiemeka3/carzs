@@ -1,0 +1,60 @@
+{% extends 'chart/base.html' %}
+{% load static %}
+
+{% block title %}
+All-cars
+{% endblock %}
+
+{% block content %}
+
+<h2>All Cars</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Car Owner</th>
+        <th>Car Name</th>
+        <th>Car Image</th>
+        <th>Car Model</th>
+        <th>Car Price</th>
+        <th>Date Posted</th>
+        <th colspan="4">Action</th>
+    </tr>
+    {% if cars %}
+        {% for c in cars %}
+            <tr>
+                <td>
+                    {{ c.car_owner }}
+                </td>
+                <td>{{ c.car_name }}</td>
+                <td><img src="{{ c.img_url }}" width="200" height="150" alt=""></td>
+                <td>
+                    {{ c.car_model }}
+                </td>
+                <td>
+                    {{ c.car_price }}
+                </td>
+                <td>
+                    {{ c.date_posted }}
+                </td>
+                <td>
+                    <a href="{% url 'backend:admin_single_view' c.id %}">View</a>
+                </td>
+                <td>
+                    <a href="{% url 'backend:admin_edit_upload' c.id %} ">Edit</a>
+                </td>
+                <td>
+                    <a href="{% url 'backend:admin_delete_upload' c.id %}">Delete</a>
+                </td>
+                <td>
+                    {% if c.approve == False %}
+                        <a href="{% url 'backend:click_approve_post' c.id %}" class="btn btn-success">Approve</a>
+                    {% elif c.approve == True %}
+                        <a href="{% url 'backend:click_disapprove_post' c.id %}" class="btn btn-danger">Disapprove</a>
+                    {% endif %}
+                </td>
+                
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+{% endblock %}

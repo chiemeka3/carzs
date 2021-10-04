@@ -3,11 +3,10 @@
         <div class="block-title">Company</div>
         <div class="block-content">
             <ol id="recently-viewed-items">
-                <li class="item odd"><a href="about-us.html">About Us</a></li>
-                <li class="item even"><a href="#">Sitemap</a></li>
-                <li class="item  odd"><a href="#">Terms of Service</a></li>
-                <li class="item last"><a href="#">Search Terms</a></li>
-                <li class="item last"><a href="contact-us.html"><strong>Contact Us</strong></a></li>
+                <li class="item odd"><a href="{% url 'frontend:about' %}">About Us</a></li>
+                <li class="item even"><a href="{% url 'frontend:foreign' %}">Foreign Cars</a></li>
+                <li class="item  odd"><a href="{% url 'frontend:nigerian' %}">Local Cars</a></li>
+                <li class="item last"><a href="{% url 'frontend:contact' %}"><strong>Contact Us</strong></a></li>
             </ol>
         </div>
     </div>

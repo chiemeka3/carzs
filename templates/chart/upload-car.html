@@ -1,0 +1,16 @@
+{% extends 'chart/base.html' %}
+{% load static %}
+
+{% block title %}
+Upload Car
+{% endblock %}
+
+{% block content %}
+
+<h2>Upload Car</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% include 'chart/form-snippet.html' with form=upload %}
+    <input type="submit" class="btn btn-primary" value="Upload Car">
+</form>
+
+{% endblock %}

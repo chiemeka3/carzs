@@ -6,5 +6,6 @@ admin.site.register(Category)
 admin.site.register(User_plan)
 admin.site.register(Car)
 admin.site.register(Plan)
+admin.site.register(Profile)
 admin.site.register(Seller_Product)
 

@@ -24,6 +24,11 @@ Contact Us Page
       <div class="col-main col-sm-9 wow bounceInUp animated animated" style="visibility: visible;">
         <div id="messages_product_view"></div>
         <form action="#" id="contactForm" method="post">
+          {% if messages %}
+            {% for mes in messages %}
+              <div class="alert {{ mes.tags }}">{{ mes }}</div>
+            {% endfor %}
+          {% endif %}
           <div class="static-contain">
             <fieldset class="group-select">
               <ul>
@@ -35,13 +40,13 @@ Contact Us Page
                           <div class="input-box name-firstname">
                             <label for="name"><em class="required">*</em>Name</label>
                             <br>
-                            <input name="name" id="name" title="Name" value="john doe" class="input-text required-entry"
+                            <input name="name" id="name" title="Name" placeholder="Your Name" class="input-text required-entry"
                               type="text">
                           </div>
                           <div class="input-box name-firstname">
                             <label for="email"><em class="required">*</em>Email</label>
                             <br>
-                            <input name="email" id="email" title="Email" value="john.doe@gmail.com"
+                            <input name="email" id="email" title="Email" placeholder="Your Email"
                               class="input-text required-entry validate-email" type="text">
                           </div>
                         </div>

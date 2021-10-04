@@ -1,0 +1,30 @@
+{% extends 'chart/base.html' %}
+{% load static %}
+
+{% block title %}
+Views Users
+{% endblock %}
+
+{% block content %}
+
+<h2>View Profile</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Fields</th>
+        <th>Data</th>
+    </tr>
+    <tr>
+        <td>Username</td>
+        <td>{{ request.user.username }}</td>
+    </tr>
+    <tr>
+        <td>Firstname</td>
+        <td>{{ request.user.first_name }}</td>
+    </tr>
+    <tr>
+        <td>Lastname</td>
+        <td>{{ request.user.last_name }}</td>
+    </tr>
+</table>
+
+{% endblock %}

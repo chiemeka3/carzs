@@ -1,0 +1,17 @@
+{% extends 'chart/base.html' %}
+{% load static %}
+
+{% block title %}
+Confirm Logout
+{% endblock %}
+
+{% block content %}
+
+<h2>Confirm Logout</h2>
+
+<h3>
+    Do you really want to logout? <a href="{% url 'backend:admin_login_view' %}">Yes</a> <a
+        href="{% url 'backend:admin_dashboard' %}">No</a>
+</h3>
+
+{% endblock %}

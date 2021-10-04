@@ -1,0 +1,60 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+Views Users
+{% endblock %}
+
+{% block content %}
+
+<h2>View Cars</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Car Name</th>
+        <th>Car Image</th>
+        <th>Car Owner</th>
+        <th>Car Year</th>
+        <th>Car Model</th>
+        <th>Car Location</th>
+        <th>Car Price</th>
+        <th>Date Posted</th>
+        <th colspan="3">Action</th>
+    </tr>
+    {% if user_upload %}
+        {% for upload in user_upload %}
+            <tr>
+                <td>{{ upload.car_name }}</td>
+                <td><img src="{{ upload.img_url }}" class="col-lg-12" alt=""></td>
+                <td>
+                    {{ upload.car_owner }}
+                </td>
+                <td>
+                    {{ upload.car_year }}
+                </td>
+                <td>
+                    {{ upload.car_model }}
+                </td>
+                <td>
+                    {{ upload.car_owner_location }}
+                </td>
+                <td>
+                    {{ upload.car_price }}
+                </td>
+                <td>
+                    {{ upload.date_posted }}
+                </td>
+                <td>
+                    <a href="{% url 'backend:single_view' upload.id %}">View</a>
+                </td>
+                <td>
+                    <a href="{% url 'backend:edit_upload' upload.id %}">Edit</a>
+                </td>
+                <td>
+                    <a href="{% url 'backend:delete_upload' upload.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+{% endblock %}

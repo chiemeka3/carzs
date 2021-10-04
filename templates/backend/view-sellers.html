@@ -1,0 +1,37 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+View Seller
+{% endblock %}
+
+{% block content %}
+
+<h2><strong> View Sellers </strong></h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th colspan="2">Action</th>
+    </tr>
+    {% if seller %}
+        {% for s in seller %}
+            <tr>
+                <td>{{ s.username }}</td>
+                <td>{{ s.email }}</td>
+                <td>{{ s.first_name }}</td>
+                <td>{{ s.last_name }}</td>
+                <td>
+                    <a href="#">Edit</a>
+                </td>
+                <td>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+{% endblock %}

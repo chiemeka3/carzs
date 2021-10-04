@@ -1,0 +1,18 @@
+{%load static%}
+<div class="app-sidebar__inner">
+    Account Dashboard
+    <ul class="vertical-nav-menu">
+        <li><a href="{% url 'backend:admin_view_profile' %}"><span> View Profile</span></a></li>
+        <li><a href="{% url 'backend:uploads_car' %}"><span> Upload Car</span></a></li>
+        <li><a href="{% url 'backend:admin_pass_form' %}"><span> Change Password</span></a></li>
+        <li><a href="#"><span> Edit Profile</span></a></li>
+        <li><a href="{% url 'backend:chartview' %}"><span> Charts</span></a></li>
+        <li><a href="{% url 'backend:all_cars' %}"><span> Cars</span></a></li>
+
+        <li><a href="{% url 'backend:list_sellers' %}"><span> View Sellers</span></a></li>
+        <li class="last"><a href="{% url 'backend:admin_confirm_logout' %}"><span> Logout </span></a></li>
+
+
+
+    </ul>
+</div>

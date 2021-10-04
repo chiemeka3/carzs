@@ -1,0 +1,16 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+Confirm Logout
+{% endblock %}
+
+{% block content %}
+
+<h1>Confirm Logout</h1>
+
+<h3>
+    Do you really want to logout? <a href="{% url 'backend:logout_view' %}">Yes</a> <a
+        href="{% url 'backend:dashboard' %}">No</a>
+</h3>
+{% endblock %}

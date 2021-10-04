@@ -1,0 +1,19 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+Success
+{% endblock %}
+
+{% block content %}
+
+<h1>Successful</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+
+{% endblock %}

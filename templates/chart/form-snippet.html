@@ -1,0 +1,36 @@
+{% if messages %}
+    {% for mes in messages %}
+    <div class="alert alert-success">{{ mes }}</div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<!-- Non visible field starts here -->
+{% for non in form.hidden_fields %}
+    {% if non.errors %}
+        {% for error in non.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+<!-- Shoow hidden field on inspect -->
+    {{ non }}
+{% endfor %}
+<!-- Non visible field ends here -->
+
+<!-- Visible field starts here -->
+{% for c in form.visible_fields %}
+    {% if c.errors %}
+        {% for error in c.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="form-group">
+        {{ c.label_tag }}
+        {{ c }}
+    </div>
+{% endfor %}
+<!-- Visible field ends here -->
+
+{% csrf_token %}

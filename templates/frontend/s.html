@@ -1,35 +1,50 @@
-<div class="popup1" style="display: block;">
-    <div class="newsletter-sign-box">
-        <h3>Newsletter Sign up</h3>
-        <img src="{% static 'frontend/images/close-icon.png' %}" alt="close" class="x" onClick="HideMe();">
-        <div class="newsletter">
-            <div class="newsletter_img"> <img alt="newsletter" src="{% static 'frontend/images/newsletter_img.png' %}">
-            </div>
-            <form method="post" id="popup-newsletter" name="popup-newsletter" class="email-form">
-                <h4>sign up for our exclusive email list and be the first to hear of special offers.</h4>
-                <div class="newsletter-form">
-                    <div class="input-box">
-                        <input type="text" name="email" id="newsletter2" title="Sign up for our newsletter"
-                            placeholder="Enter your email address" class="input-text required-entry validate-email">
-                        <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
-                    </div>
-                    <!--input-box-->
-                </div>
-                <!--newsletter-form-->
-                <label class="subscribe-bottom">
-                    <input type="checkbox" name="notshowpopup" id="notshowpopup">
-                    Don’t show this popup again</label>
-            </form>
+Admin Manager
+{% url 'backend:admin_login_view' as Login %}
+<ul class="links">
+    <li{% if request.path==Login %} class="active" {% endif %}><a href="{% url 'backend:admin_login_view' %}">Login</a>
+    </li>
+</ul>
+
+function ShowMe() {
+jQuery('.popup2').show();
+jQuery('#fade').show();
+
+}
+function ShowMe1() {
+jQuery('.popup3').show();
+jQuery('#fade').show();
+
+}
+function HideMe1() {
+jQuery('.popup2').hide();
+jQuery('#fade').hide();
+
+
+}
+
+function HideMe2() {
+jQuery('.popup3').hide();
+jQuery('#fade').hide();
+
+}
+
+<div id="button" class="button--circle animation-start">
+    <div id="button-img"><svg id="shape" width="60" height="60" viewBox="0 0 60 60" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="#2e4ef7"></circle>
+        </svg><svg id="icon" width="33" height="44" viewBox="0 0 22 31" xmlns="http://www.w3.org/2000/svg"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <path
+                d="M14.734,0.145c0.216,-0.193 0.566,-0.193 0.781,0c1.164,1.046 1.805,2.437 1.805,3.916c0,1.48 -0.641,2.871 -1.805,3.917c-0.108,0.096 -0.249,0.145 -0.391,0.145c-0.141,0 -0.282,-0.049 -0.39,-0.145c-0.216,-0.194 -0.216,-0.508 0,-0.702c0.955,-0.859 1.481,-2 1.481,-3.215c0,-1.214 -0.525,-2.355 -1.481,-3.214c-0.215,-0.194 -0.215,-0.508 0,-0.702Zm-7.151,0.702c0.215,-0.193 0.215,-0.508 -0.001,-0.701c-0.215,-0.194 -0.565,-0.194 -0.78,0c-2.403,2.159 -2.403,5.673 -0.001,7.832c0.108,0.097 0.25,0.145 0.391,0.145c0.141,0 0.283,-0.048 0.39,-0.145c0.216,-0.194 0.216,-0.508 0,-0.702c-1.971,-1.772 -1.971,-4.656 0.001,-6.429Zm4.76,4.523c0.513,-0.307 0.857,-0.869 0.857,-1.511c0,-0.972 -0.788,-1.76 -1.76,-1.76c-0.972,0 -1.76,0.788 -1.76,1.76c0,0.722 0.435,1.343 1.057,1.614l-0.006,4.095l-7.731,0c-1.657,0 -3,1.343 -3,3l0,12.48l0,0.016l0,0.027l0,2.854l0,2.188l2,-0.888l2.698,-1.197l14.302,0c1.657,0 3,-1.343 3,-3l0,-12.48c0,-1.657 -1.343,-3 -3,-3l-6.664,0l0.007,-4.198Zm-4.054,1.272c0.108,0.097 0.249,0.145 0.39,0.145c0.142,0 0.283,-0.048 0.391,-0.145c0.216,-0.194 0.216,-0.508 0,-0.702c-1.152,-1.035 -1.152,-2.72 0,-3.755c0.216,-0.194 0.216,-0.508 0,-0.702c-0.216,-0.194 -0.565,-0.194 -0.781,0c-1.582,1.422 -1.582,3.736 0,5.159Zm5.348,0.145c-0.141,0 -0.283,-0.049 -0.39,-0.145c-0.216,-0.194 -0.216,-0.509 0,-0.702c0.558,-0.502 0.865,-1.169 0.865,-1.878c0,-0.709 -0.307,-1.376 -0.865,-1.877c-0.216,-0.194 -0.216,-0.508 0,-0.702c0.215,-0.194 0.565,-0.194 0.781,0c0.766,0.689 1.188,1.605 1.188,2.579c0,0.974 -0.422,1.891 -1.188,2.58c-0.108,0.096 -0.25,0.145 -0.391,0.145Z"
+                style="fill:#ffffff;"></path>
+        </svg>
+        <div class="dots">
+            <div id="dot-1" class="dot"></div>
+            <div id="dot-2" class="dot"></div>
+            <div id="dot-3" class="dot"></div>
         </div>
-        <!--newsletter-->
-
     </div>
-    <!--newsletter-sign-box-->
+    <div id="button-badge" style="opacity: 1;">1</div>
 </div>
-<div id="fade" style="display: block;"></div>
-
-
-
-
 
 

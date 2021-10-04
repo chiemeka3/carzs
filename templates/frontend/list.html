@@ -72,29 +72,31 @@ Nigerian Used Cars Page
                 <div class="pages">
                   <label>Page:</label>
                   <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
+                    <li><a href="?page=1">&laquo;</a></li>
+                    {% if person_page_obj.has_previous %}
+                    <li class="active"><a href="?page=1">1</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">2</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">3</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">4</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">5</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">&raquo;</a></li>
+                    {% endif %}
                   </ul>
                 </div>
               </div>
             </div>
             <div class="category-products">
-              {% if lt %}
-                {% for l in lt %}
+              {% if person_page_obj %}
+                {% for l in person_page_obj %}
                   <ol class="products-list" id="products-list">
                     <li class="item first">
                       <div class="product-image"> 
-                        <a href="product-detail.html" title="HTC Rhyme Sense"> 
+                        <a href="{% url 'frontend:car_detail' l.id %}" title="HTC Rhyme Sense"> 
                           <img class="small-image" src="{{ l.img_url }}" alt="HTC Rhyme Sense">
                         </a> 
                       </div>
                       <div class="product-shop">
-                        <h2 class="product-name"><a href="product-detail.html" title="HTC Rhyme Sense">{{ l.car_model }}</a>
+                        <h2 class="product-name"><a href="{% url 'frontend:car_detail' l.id %}" title="HTC Rhyme Sense">{{ l.car_model }}</a>
                         </h2>
                         <div class="ratings">
                           <div class="rating-box">
@@ -112,16 +114,10 @@ Nigerian Used Cars Page
                         </div>
                         <div class="price-box">
                           <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price">
-                              $442.99 </span> </p>
+                               </span> </p>
                           <p class="special-price"> <span class="price-label"></span> <span id="product-price-212"
-                              class="price"> $222.99 </span> </p>
+                              class="price"> &#8358; {{ l.car_price }} </span> </p>
                         </div>
-                        <div class="actions">
-                          <button class="button btn-cart ajx-cart" title="Add to Cart" type="button"><span>Add to
-                              Cart</span></button>
-                          <span class="add-to-links"> <a title="Add to Wishlist" class="button link-wishlist"
-                              href="#"><span>Add to Wishlist</span></a> <a title="Add to Compare"
-                              class="button link-compare" href="#"><span>Add to Compare</span></a> </span> </div>
                       </div>
                     </li>
                   </ol>
@@ -159,13 +155,18 @@ Nigerian Used Cars Page
                 <div class="pages">
                   <label>Page:</label>
                   <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
+                    <li><a href="?page=1">&laquo;</a></li>
+                    {% if person_page_obj.has_previous %}
+                    <li class="active"><a href="?page=1">1</a></li>
+                    {% endif %}
+                
+                    {% if person_page_obj.has_next %}
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">2</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}" >3</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">4</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">5</a></li>
+                    <li><a href="?page={{ person_page_obj.next_page_number }}">&raquo;</a></li>
+                    {% endif %}
                   </ul>
                 </div>
               </div>

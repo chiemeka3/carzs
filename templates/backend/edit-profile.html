@@ -1,0 +1,26 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+Edit Profile
+{% endblock %}
+
+{% block content %}
+
+<h1>Edit Profile</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ edit_key.as_p }}
+        <input type="submit" value="Edit Profile" class="btn btnsuccess">
+    </form>
+</div>
+
+
+{% endblock %}

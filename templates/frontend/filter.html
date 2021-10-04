@@ -1,0 +1,56 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block title %}
+Search
+{% endblock %}
+
+{% block content %}
+<div class="category-products">
+        {% if not q %}
+        no result found
+        {% else %}
+        {% if q %}
+        {% for l in q %}
+        <ol class="products-list" id="products-list">
+                <li class="item first">
+                        <div class="product-image">
+                                <a href="{% url 'frontend:car_detail' l.id %}" title="HTC Rhyme Sense">
+                                        <img class="small-image" src="{{ l.img_url }}" alt="HTC Rhyme Sense">
+                                </a>
+                        </div>
+                        <div class="product-shop">
+                                <h2 class="product-name"><a href="{% url 'frontend:car_detail' l.id %}"
+                                                title="HTC Rhyme Sense">{{ l.car_model }}</a>
+                                </h2>
+                                <div class="ratings">
+                                        <div class="rating-box">
+                                                <div style="width:50%" class="rating"></div>
+                                        </div>
+                                        <p class="rating-links"> <a href="#/review/product/list/id/167/category/35/">1
+                                                        Review(s)</a> <span class="separator">|</span> <a
+                                                        href="#review-form">Add Your Review</a> </p>
+                                </div>
+                                <div class="desc std">
+                                        <p>Sed volutpat ac massa eget
+                                                lacinia.
+                                                Aenean volutpat lacus at dolor blandit </p>
+                                        <p>Sed sed interdum diam. Donec sit ametenim tempor, dapibus nunc eu,
+                                                tincidunt mi. Vivamus dictum nec... <a class="link-learn" title=""
+                                                        href="#">Learn More</a> </p>
+                                </div>
+                                <div class="price-box">
+                                        <p class="old-price"> <span class="price-label"></span> <span id="old-price-212"
+                                                        class="price">
+                                                </span> </p>
+                                        <p class="special-price"> <span class="price-label"></span> <span
+                                                        id="product-price-212" class="price"> &#8358; {{ l.car_price }}
+                                                </span> </p>
+                                </div>
+                        </div>
+                </li>
+        </ol>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+</div>
+{% endblock %}

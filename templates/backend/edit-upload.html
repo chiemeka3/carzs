@@ -1,0 +1,16 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+
+{% block title %}
+Edit Upload 
+{% endblock %}
+
+{% block  content %}
+
+<h2>Upload Car</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% include 'backend/form-snippet.html' with form=edit_upload %}
+    <input type="submit" class="btn btn-primary" value="Edit Upload">
+</form>
+
+{% endblock %}
